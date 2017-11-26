@@ -11,23 +11,44 @@ const store = new Vuex.Store({
   },
 
   mutations: {
-    creatingDecks(store, usersLists) {
+    creatingDecks(state, usersLists) {
       const shuffledLogins = ArraysService.shuffle(usersLists);
 
       const midCards = Math.ceil(shuffledLogins.length / 2);
 
-      store.playerDeck = shuffledLogins.splice(0, midCards);
-      store.cpuDeck = shuffledLogins.splice(0, midCards);
+      state.playerDeck = shuffledLogins.splice(0, midCards);
+      state.cpuDeck = shuffledLogins.splice(0, midCards);
+    },
+
+    shuffleDecks(state) {
+      state.playerDeck = ArraysService.shuffle(state.playerDeck);
+      state.cpuDeck = ArraysService.shuffle(state.cpuDeck);
+    },
+
+    savingPlayingEvent(state, infoEvent) {
+
+      if (infoEvent.position > 0) {
+        state.playerDeck.push(infoEvent.cpu);
+
+        const removingIndex = state.cpuDeck.findIndex(cpu => cpu.login === infoEvent.cpu.login);
+        state.cpuDeck.splice(removingIndex, 1);
+
+      } else {
+        state.cpuDeck.push(infoEvent.player);
+
+        const removingIndex = state.playerDeck.findIndex(player => player.login === infoEvent.player.login);
+        state.playerDeck.splice(removingIndex, 1);
+      }
     }
   },
 
   getters: {
-    getPlayerDeck(store) {
-      return store.playerDeck;
+    getPlayerDeck(state) {
+      return state.playerDeck;
     },
 
-    getCPUDeck(store) {
-      return store.cpuDeck;
+    getCPUDeck(state) {
+      return state.cpuDeck;
     }
   }
 });

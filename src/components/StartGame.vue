@@ -20,8 +20,6 @@ import { mapGetters } from "vuex";
 
 const gitHubService = new GitHubService();
 
-const saveDraw = (playerCard, cpuCard) => {};
-
 export default {
   components: {
     UserCard
@@ -46,13 +44,20 @@ export default {
       const playerValue = info.profile[info.prop];
       const cpuValue = cpuProfile[info.prop];
 
-      if (playerValue > cpuValue) {
-        alert("Player ganhou");
-      } else if (playerValue < cpuValue) {
-        alert("Player perdeu");
-      } else {
-        saveDraw(this.playerCard, this.cpuCard);
+      const position = playerValue - cpuValue;
+
+      if (position !== 0) {
+        const infoEvent = {
+          player: playerProfile,
+          cpu: cpuProfile,
+          position
+        };
+
+        this.$store.commit("savingPlayingEvent", infoEvent);
       }
+
+      this.$store.commit("suffleDecks");
+      this.showCards();
     },
 
     showCards() {
