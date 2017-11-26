@@ -12,7 +12,7 @@ const store = new Vuex.Store({
 
   mutations: {
     creatingDecks(store, loginList) {
-      const shuffledLogins = ArraysService.shuffle(logins);
+      const shuffledLogins = ArraysService.shuffle(loginList);
 
       const midCards = Math.ceil(shuffledLogins.length / 2);
 

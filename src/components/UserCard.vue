@@ -1,6 +1,6 @@
 <template>
-  <div class="card" v-if="profile.login">
-    <div class="card-content">
+  <div class="card">
+    <div class="card-content" v-if="profile.login">
       <div class="media">
         <div class="media-left">
           <figure class="image is-48x48">
@@ -40,35 +40,39 @@
         <ul>
           <li>
             Repositories:
-            <span class="tag is-info">{{profile.public_repos}}</span>
+            <span class="tag is-info" @click="selectedItem('public_repos')">{{profile.public_repos}}</span>
           </li>
 
           <li>
             Gists:
-            <span class="tag is-info">{{profile.public_gists}}</span>
+            <span class="tag is-info" @click="selectedItem('public_gists')">{{profile.public_gists}}</span>
           </li>
 
           <li>
             Followers:
-            <span class="tag is-info">{{profile.followers}}</span>
+            <span class="tag is-info" @click="selectedItem('followers')">{{profile.followers}}</span>
           </li>
 
           <li>
             Following:
-            <span class="tag is-info">{{profile.following}}</span>
+            <span class="tag is-info" @click="selectedItem('following')">{{profile.following}}</span>
           </li>
 
           <li>
             User since:
-            <span class="tag is-info">{{profile.created_at}}</span>
+            <span class="tag is-info" @click="selectedItem('created_at')">{{profile.created_at}}</span>
           </li>
 
           <li>
             Last updated:
-            <span class="tag is-info">{{profile.updated_at}}</span>
+            <span class="tag is-info" @click="selectedItem('updated_at')">{{profile.updated_at}}</span>
           </li>
         </ul>
       </div>
+    </div>
+
+    <div class="card-content" v-else>
+      Card's back
     </div>
   </div>
 </template>
@@ -104,11 +108,19 @@ export default {
     }
   },
 
-  mounted() {
-    if (this.login) {
-      gitHubService
-        .getUser(this.login)
-        .then(response => (this.profile = response.data));
+  methods: {
+    selectedItem(prop) {
+      this.$emit("onSelectedItem", { prop });
+    }
+  },
+
+  watch: {
+    login() {
+      if (this.login) {
+        gitHubService
+          .getUser(this.login)
+          .then(response => (this.profile = response.data));
+      }
     }
   }
 };

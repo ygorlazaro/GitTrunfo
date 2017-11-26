@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "buefy": "^0.6.1",
+    "query-string": "^5.0.1",
     "vue": "^2.5.8",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
