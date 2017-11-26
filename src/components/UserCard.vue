@@ -9,21 +9,38 @@
         </div>
         <div class="media-content">
           <p class="title is-4">
-            {{profile.name}}
+            {{formatedName}}
           </p>
           <p class="subtitle is-6">
             <a :href="'https://www.github.com/' + profile.login" target="_blank">@{{profile.login}}</a>
+            <button class="button is-primary is-small" @click="showBio=!showBio">
+              {{showBio?"Hide bio":"See bio"}}
+            </button>
           </p>
         </div>
       </div>
 
       <div class="content">
-        {{profile.bio}}
-        <a href="#">#css</a> <a href="#">#responsive</a>
-        <br>
-        <time :datetime="profile.created_at">
-          {{profile.created_at}}
-        </time>
+        <div v-if="profile.location">
+          {{profile.location}}
+        </div>
+
+        <div v-if="profile.blog">
+          Link: <a :href="profile.blog" target="_blank">{{profile.blog}}</a>
+        </div>
+
+        <div class="bio" v-if="showBio">
+          {{profile.bio}}
+        </div>
+
+        <ul>
+          <li>Repositories: {{profile.public_repos}}</li>
+          <li>Gists: {{profile.public_gists}}</li>
+          <li>Followers: {{profile.followers}}</li>
+          <li>Following: {{profile.following}}</li>
+          <li>User since: {{profile.created_at}}</li>
+          <li>Last updated: {{profile.updated_at}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -39,8 +56,25 @@ export default {
 
   data() {
     return {
-      profile: {}
+      profile: {},
+      showBio: false
     };
+  },
+
+  computed: {
+    formatedName() {
+      if (!this.profile.name) {
+        return;
+      }
+
+      const names = this.profile.name.split(" ");
+
+      if (names.length === 1) {
+        return names[0];
+      }
+
+      return `${names[0]} ${names[names.length - 1]}`;
+    }
   },
 
   mounted() {

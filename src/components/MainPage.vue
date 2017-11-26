@@ -1,10 +1,6 @@
 <template>
   <div>
     <div class="columns">
-
-    </div>
-
-    <div class="columns">
       <div class="column is-4">
         <UserCard login="ygorlazaro"></UserCard>
       </div>
