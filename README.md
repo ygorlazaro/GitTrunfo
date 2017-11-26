@@ -1,5 +1,7 @@
 # GitTrunfo
 
+![](screen1.png)
+
 Simples joguinho de SuperTrunfo usando a API de usuários do GitHub.
 
 # Para rodar:

@@ -6,10 +6,12 @@
       </div>
 
       <div class="column is-one-quarter">
+        <h1 class="title">Seu Deck</h1>
         <UserCard :login="playerCard.login" :deckLength="getPlayerDeck.length" @onSelectedItem="onSelectedUserItem" :showContent="true"></UserCard>
       </div>
 
       <div class="column is-one-quarter">
+        <h1 class="title">Deck adversário</h1>
         <UserCard :login="cpuCard.login" :deckLength="getCPUDeck.length" ref="cpuCard" :showContent="showCpuCard"></UserCard>
       </div>
     </div>
