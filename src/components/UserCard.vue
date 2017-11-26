@@ -109,7 +109,10 @@ export default {
 
   methods: {
     selectedItem(prop) {
-      this.$emit("onSelectedItem", { prop });
+      this.$emit("onSelectedItem", {
+        prop,
+        profile: this.profile
+      });
     }
   },
 

@@ -6,7 +6,7 @@
       </div>
 
       <div class="column is-4">
-        <UserCard :login="cpuCard.login"></UserCard>
+        <UserCard :login="cpuCard.login" ref="cpuCard"></UserCard>
       </div>
     </div>
 
@@ -19,6 +19,8 @@ import GitHubService from "@/services/github";
 import { mapGetters } from "vuex";
 
 const gitHubService = new GitHubService();
+
+const saveDraw = (playerCard, cpuCard) => {};
 
 export default {
   components: {
@@ -38,7 +40,19 @@ export default {
 
   methods: {
     onSelectedUserItem(info) {
-      console.log(info);
+      const playerProfile = info.profile;
+      const cpuProfile = this.$refs.cpuCard.profile;
+
+      const playerValue = info.profile[info.prop];
+      const cpuValue = cpuProfile[info.prop];
+
+      if (playerValue > cpuValue) {
+        alert("Player ganhou");
+      } else if (playerValue < cpuValue) {
+        alert("Player perdeu");
+      } else {
+        saveDraw(this.playerCard, this.cpuCard);
+      }
     },
 
     showCards() {
