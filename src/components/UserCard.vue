@@ -6,7 +6,7 @@
       </p>
     </header>
 
-    <div class="card-content" v-if="profile.login">
+    <div class="card-content" v-if="profile.login && showContent">
       <div class="media">
         <div class="media-left">
           <figure class="image is-48x48">
@@ -24,7 +24,7 @@
             </button>
 
             <span class="tag is-danger" v-else>
-              There's no bio
+              Sem biografia
             </span>
           </p>
         </div>
@@ -88,7 +88,7 @@ import GitHubService from "@/services/github";
 const gitHubService = new GitHubService();
 
 export default {
-  props: ["login", "deckLength"],
+  props: ["login", "deckLength", "showContent"],
 
   data() {
     return {

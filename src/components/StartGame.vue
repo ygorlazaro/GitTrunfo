@@ -2,11 +2,11 @@
   <div>
     <div class="columns">
       <div class="column is-4">
-        <UserCard :login="playerCard.login" :deckLength="getPlayerDeck.length" @onSelectedItem="onSelectedUserItem"></UserCard>
+        <UserCard :login="playerCard.login" :deckLength="getPlayerDeck.length" @onSelectedItem="onSelectedUserItem" :showContent="true"></UserCard>
       </div>
 
       <div class="column is-4">
-        <UserCard :login="cpuCard.login" :deckLength="getCPUDeck.length" ref="cpuCard"></UserCard>
+        <UserCard :login="cpuCard.login" :deckLength="getCPUDeck.length" ref="cpuCard" :showContent="showCpuCard"></UserCard>
       </div>
     </div>
 
@@ -32,12 +32,15 @@ export default {
   data() {
     return {
       playerCard: "",
-      cpuCard: ""
+      cpuCard: "",
+      showCpuCard: false
     };
   },
 
   methods: {
     onSelectedUserItem(info) {
+      this.showCpuCard = true;
+
       const playerProfile = info.profile;
       const cpuProfile = this.$refs.cpuCard.profile;
 
@@ -65,8 +68,11 @@ export default {
         this.$store.commit("savingPlayingEvent", infoEvent);
       }
 
-      this.$store.commit("suffleDecks");
-      this.showCards();
+      setTimeout(() => {
+        this.showCpuCard = false;
+        this.$store.commit("shuffleDecks");
+        this.showCards();
+      }, 2000);
     },
 
     showCards() {
