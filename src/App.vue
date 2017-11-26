@@ -1,5 +1,6 @@
 <template>
   <div class="container is-fluid">
+
     <section class="hero is-info">
       <div class="hero-body">
         <div class="container">
