@@ -2,15 +2,11 @@
   <div>
     <div class="columns">
       <div class="column is-4">
-        Seu deck: {{getPlayerDeck.length}}
-
-        <UserCard :login="playerCard.login" @onSelectedItem="onSelectedUserItem"></UserCard>
+        <UserCard :login="playerCard.login" :deckLength="getPlayerDeck.length" @onSelectedItem="onSelectedUserItem"></UserCard>
       </div>
 
       <div class="column is-4">
-        Deck do oponente: {{getCPUDeck.length}}
-
-        <UserCard :login="cpuCard.login" ref="cpuCard"></UserCard>
+        <UserCard :login="cpuCard.login" :deckLength="getCPUDeck.length" ref="cpuCard"></UserCard>
       </div>
     </div>
 

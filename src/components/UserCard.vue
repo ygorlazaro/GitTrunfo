@@ -1,5 +1,11 @@
 <template>
   <div class="card">
+      <header class="card-header">
+      <p class="card-header-title">
+        Quantidade no Deck: {{deckLength}}
+      </p>
+    </header>
+
     <div class="card-content" v-if="profile.login">
       <div class="media">
         <div class="media-left">
@@ -82,7 +88,7 @@ import GitHubService from "@/services/github";
 const gitHubService = new GitHubService();
 
 export default {
-  props: ["login"],
+  props: ["login", "deckLength"],
 
   data() {
     return {
