@@ -77,6 +77,7 @@
     </div>
 
     <div class="card-content" v-else>
+       <img src="../assets/card.png" alt="Back of the card" />
        <b-loading :active.sync="isLoading"></b-loading>
     </div>
   </div>

@@ -1,11 +1,15 @@
 <template>
   <div>
     <div class="columns">
-      <div class="column is-4">
+      <div class="column is-one-quarter">
+
+      </div>
+
+      <div class="column is-one-quarter">
         <UserCard :login="playerCard.login" :deckLength="getPlayerDeck.length" @onSelectedItem="onSelectedUserItem" :showContent="true"></UserCard>
       </div>
 
-      <div class="column is-4">
+      <div class="column is-one-quarter">
         <UserCard :login="cpuCard.login" :deckLength="getCPUDeck.length" ref="cpuCard" :showContent="showCpuCard"></UserCard>
       </div>
     </div>
