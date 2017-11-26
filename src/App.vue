@@ -1,23 +1,18 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+  <div class="container is-fluid">
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            GitTrunfo
+          </h1>
+          <h2 class="subtitle">
+            <a href="https://www.github.com/ygorlazaro" target="_blank">@ygorlazaro</a>
+          </h2>
+        </div>
+      </div>
+    </section>
+
     <router-view/>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'app'
-}
-</script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
