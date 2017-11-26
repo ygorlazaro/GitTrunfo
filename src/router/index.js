@@ -15,5 +15,6 @@ export default new Router({
       path: '/game',
       component: StartGame
     }
-  ]
+  ],
+  mode: "history"
 })
