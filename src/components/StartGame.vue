@@ -44,7 +44,16 @@ export default {
       const playerValue = info.profile[info.prop];
       const cpuValue = cpuProfile[info.prop];
 
-      const position = playerValue - cpuValue;
+      let position = 0;
+
+      if (info.prop.indexOf("_at") >= 0) {
+        const playerDate = +new Date(playerValue);
+        const cpuDate = +new Date(cpuValue);
+
+        position = playerDate - cpuDate;
+      } else {
+        position = playerValue - cpuValue;
+      }
 
       if (position !== 0) {
         const infoEvent = {

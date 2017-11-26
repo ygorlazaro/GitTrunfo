@@ -47,11 +47,11 @@
           </li>
 
           <li>
-            <span class="tag is-info" @click="selectedItem('created_at')">User since: {{profile.created_at}}</span>
+            <span class="tag is-info" @click="selectedItem('created_at')">User since: {{formatDate(profile.created_at)}}</span>
           </li>
 
           <li>
-            <span class="tag is-info" @click="selectedItem('updated_at')">Last updated: {{profile.updated_at}}</span>
+            <span class="tag is-info" @click="selectedItem('updated_at')">Last updated: {{formatDate(profile.updated_at)}}</span>
           </li>
         </ul>
 
@@ -113,6 +113,14 @@ export default {
         prop,
         profile: this.profile
       });
+    },
+
+    formatDate(value) {
+      if (!value) {
+        return "";
+      }
+
+      return new Date(value).toLocaleDateString();
     }
   },
 
