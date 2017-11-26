@@ -6,6 +6,10 @@ class GitHubService {
   getUser(username) {
     return axios.get(`${this.url}users/${username}`)
   }
+
+  allUsers() {
+    return axios.get(`${this.url}users`)
+  }
 }
 
 export default GitHubService
