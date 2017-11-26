@@ -2,11 +2,11 @@
   <div>
     <div class="columns">
       <div class="column is-4">
-        <UserCard :login="playerCard" @onSelectedItem="onSelectedUserItem()"></UserCard>
+        <UserCard :login="playerCard.login" @onSelectedItem="onSelectedUserItem"></UserCard>
       </div>
 
       <div class="column is-4">
-        <UserCard :login="cpuCard"></UserCard>
+        <UserCard :login="cpuCard.login"></UserCard>
       </div>
     </div>
 
@@ -37,7 +37,9 @@ export default {
   },
 
   methods: {
-    onSelectedUserItem(info) {},
+    onSelectedUserItem(info) {
+      console.log(info);
+    },
 
     showCards() {
       const playerDeck = this.getPlayerDeck;
@@ -52,8 +54,7 @@ export default {
     gitHubService
       .allUsers()
       .then(response => response.data)
-      .then(users => users.map(user => user.login))
-      .then(logins => this.$store.commit("creatingDecks", logins))
+      .then(users => this.$store.commit("creatingDecks", users))
       .then(this.showCards);
   }
 };

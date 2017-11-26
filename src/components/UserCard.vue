@@ -25,6 +25,36 @@
       </div>
 
       <div class="content">
+        <p>
+          Escolha a propriedade para confrontar
+        </p>
+
+        <ul>
+          <li>
+            <span class="tag is-info" @click="selectedItem('public_repos')">Repositories: {{profile.public_repos}}</span>
+          </li>
+
+          <li>
+            <span class="tag is-info" @click="selectedItem('public_gists')">Gists: {{profile.public_gists}}</span>
+          </li>
+
+          <li>
+            <span class="tag is-info" @click="selectedItem('followers')">Followers: {{profile.followers}}</span>
+          </li>
+
+          <li>
+            <span class="tag is-info" @click="selectedItem('following')">Following: {{profile.following}}</span>
+          </li>
+
+          <li>
+            <span class="tag is-info" @click="selectedItem('created_at')">User since: {{profile.created_at}}</span>
+          </li>
+
+          <li>
+            <span class="tag is-info" @click="selectedItem('updated_at')">Last updated: {{profile.updated_at}}</span>
+          </li>
+        </ul>
+
         <div v-if="profile.location">
           {{profile.location}}
         </div>
@@ -37,37 +67,6 @@
           {{profile.bio}}
         </div>
 
-        <ul>
-          <li>
-            Repositories:
-            <span class="tag is-info" @click="selectedItem('public_repos')">{{profile.public_repos}}</span>
-          </li>
-
-          <li>
-            Gists:
-            <span class="tag is-info" @click="selectedItem('public_gists')">{{profile.public_gists}}</span>
-          </li>
-
-          <li>
-            Followers:
-            <span class="tag is-info" @click="selectedItem('followers')">{{profile.followers}}</span>
-          </li>
-
-          <li>
-            Following:
-            <span class="tag is-info" @click="selectedItem('following')">{{profile.following}}</span>
-          </li>
-
-          <li>
-            User since:
-            <span class="tag is-info" @click="selectedItem('created_at')">{{profile.created_at}}</span>
-          </li>
-
-          <li>
-            Last updated:
-            <span class="tag is-info" @click="selectedItem('updated_at')">{{profile.updated_at}}</span>
-          </li>
-        </ul>
       </div>
     </div>
 
@@ -125,3 +124,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+ul {
+  list-style: none;
+}
+</style>
+
