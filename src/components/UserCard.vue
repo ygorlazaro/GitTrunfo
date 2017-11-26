@@ -71,7 +71,7 @@
     </div>
 
     <div class="card-content" v-else>
-      Card's back
+       <b-loading :active.sync="isLoading"></b-loading>
     </div>
   </div>
 </template>
@@ -87,7 +87,8 @@ export default {
   data() {
     return {
       profile: {},
-      showBio: false
+      showBio: false,
+      isLoading: false
     };
   },
 
@@ -127,9 +128,12 @@ export default {
   watch: {
     login() {
       if (this.login) {
+        this.isLoading = true;
+
         gitHubService
           .getUser(this.login)
-          .then(response => (this.profile = response.data));
+          .then(response => (this.profile = response.data))
+          .then(() => (this.isLoading = false));
       }
     }
   }

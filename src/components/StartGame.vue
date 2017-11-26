@@ -2,10 +2,14 @@
   <div>
     <div class="columns">
       <div class="column is-4">
+        Seu deck: {{getPlayerDeck.length}}
+
         <UserCard :login="playerCard.login" @onSelectedItem="onSelectedUserItem"></UserCard>
       </div>
 
       <div class="column is-4">
+        Deck do oponente: {{getCPUDeck.length}}
+
         <UserCard :login="cpuCard.login" ref="cpuCard"></UserCard>
       </div>
     </div>
@@ -73,8 +77,14 @@ export default {
       const playerDeck = this.getPlayerDeck;
       const cpuDeck = this.getCPUDeck;
 
-      this.playerCard = playerDeck[0];
-      this.cpuCard = cpuDeck[0];
+      if (cpuDeck.length === 0) {
+        alert("Você venceu");
+      } else if (playerDeck.length === 0) {
+        alert("Vocẽ perdeu");
+      } else {
+        this.playerCard = playerDeck[0];
+        this.cpuCard = cpuDeck[0];
+      }
     }
   },
 
