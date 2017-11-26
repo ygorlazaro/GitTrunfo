@@ -8,7 +8,7 @@
             GitTrunfo
           </h1>
           <h2 class="subtitle">
-            <a href="https://www.github.com/ygorlazaro" target="_blank">@ygorlazaro</a>
+            <a href="https://www.github.com/ygorlazaro" target="_blank">Created by @ygorlazaro</a>
           </h2>
         </div>
       </div>

@@ -13,9 +13,13 @@
           </p>
           <p class="subtitle is-6">
             <a :href="'https://www.github.com/' + profile.login" target="_blank">@{{profile.login}}</a>
-            <button class="button is-primary is-small" @click="showBio=!showBio">
+            <button class="button is-primary is-small" v-if="profile.bio" @click="showBio=!showBio">
               {{showBio?"Hide bio":"See bio"}}
             </button>
+
+            <span class="tag is-danger" v-else>
+              There's no bio
+            </span>
           </p>
         </div>
       </div>
@@ -34,12 +38,35 @@
         </div>
 
         <ul>
-          <li>Repositories: {{profile.public_repos}}</li>
-          <li>Gists: {{profile.public_gists}}</li>
-          <li>Followers: {{profile.followers}}</li>
-          <li>Following: {{profile.following}}</li>
-          <li>User since: {{profile.created_at}}</li>
-          <li>Last updated: {{profile.updated_at}}</li>
+          <li>
+            Repositories:
+            <span class="tag is-info">{{profile.public_repos}}</span>
+          </li>
+
+          <li>
+            Gists:
+            <span class="tag is-info">{{profile.public_gists}}</span>
+          </li>
+
+          <li>
+            Followers:
+            <span class="tag is-info">{{profile.followers}}</span>
+          </li>
+
+          <li>
+            Following:
+            <span class="tag is-info">{{profile.following}}</span>
+          </li>
+
+          <li>
+            User since:
+            <span class="tag is-info">{{profile.created_at}}</span>
+          </li>
+
+          <li>
+            Last updated:
+            <span class="tag is-info">{{profile.updated_at}}</span>
+          </li>
         </ul>
       </div>
     </div>
