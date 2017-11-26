@@ -1,21 +1,29 @@
-# ygorlazaro.github
+# GitTrunfo
 
-> A Vue.js project
+Simples joguinho de SuperTrunfo usando a API de usuários do GitHub.
 
-## Build Setup
+# Para rodar:
 
 ``` bash
-# install dependencies
+# instala dependências
 npm install
 
-# serve with hot reload at localhost:8080
+# servidor com hot reload rodando em localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Scripts completos
+
+``` bash
+# instala dependências
+npm install
+
+# servidor com hot reload rodando em localhost:8080
+npm run dev
+
+# build para produção
+npm run build
+
+# build para produção com bundle report
+npm run build --report
+```
