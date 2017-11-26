@@ -58,6 +58,11 @@ export default {
         position = playerValue - cpuValue;
       }
 
+      let toast = {
+        message: "Empate",
+        type: "is-warning"
+      };
+
       if (position !== 0) {
         const infoEvent = {
           player: playerProfile,
@@ -66,7 +71,21 @@ export default {
         };
 
         this.$store.commit("savingPlayingEvent", infoEvent);
+
+        if (position > 0) {
+          toast = {
+            message: "Vitória!",
+            type: "is-success"
+          };
+        } else {
+          toast = {
+            message: "Derrota!",
+            type: "is-danger"
+          };
+        }
       }
+
+      this.$toast.open(toast);
 
       setTimeout(() => {
         this.showCpuCard = false;
