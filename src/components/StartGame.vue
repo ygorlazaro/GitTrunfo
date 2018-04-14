@@ -21,7 +21,7 @@
 
 <script>
 import UserCard from "./UserCard";
-import GitHubService from "@/services/github";
+import GitHubService from "../services/github";
 import { mapGetters } from "vuex";
 
 const gitHubService = new GitHubService();
