@@ -1,10 +1,10 @@
 import axios from 'axios';
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 const getQueryString = (): string => {
     const params = {
         client_id: '7527375cd264c8530f30',
-        client_secret: '8675345800219782348c21267e31d18b15c5aea3'
+        client_secret: 'c43f520704b64c5080f4b96beeb48bb3d8d46feb'
     };
 
     return '?' + queryString.stringify(params);
