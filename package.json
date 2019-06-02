@@ -1,39 +1,42 @@
 {
-    "name": "ygorlazaro.gittrunfo",
-    "version": "2.0.0",
-    "description": "SuperTrunfo-like com a API do GitHub ",
-    "author": "Ygor Lazaro <ygor@ygorlazaro.com>",
-    "scripts": {
-        "start": "parcel index.html",
-        "build": "parcel build index.html"
-    },
-    "dependencies": {
-        "axios": "^0.18.0",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "buefy": "^0.7.6",
-        "query-string": "^6.5.0",
-        "vue": "^2.6.10",
-        "vue-hot-reload-api": "^2.3.3",
-        "vue-router": "^3.0.6",
-        "vuex": "^3.1.1"
-    },
-    "devDependencies": {
-        "@vue/component-compiler-utils": "^3.0.0",
-        "babel-core": "^6.26.3",
-        "babel-preset-env": "^1.7.0",
-        "parcel-bundler": "^1.12.3",
-        "typescript": "^3.5.1",
-        "vue-template-compiler": "^2.6.10"
-    },
-    "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ygorlazaro/GitTrunfo.git"
-    },
-    "keywords": [],
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ygorlazaro/GitTrunfo/issues"
-    },
-    "homepage": "https://github.com/ygorlazaro/GitTrunfo#readme"
+  "name": "ygorlazaro.gittrunfo",
+  "version": "2.0.0",
+  "description": "SuperTrunfo-like com a API do GitHub ",
+  "author": "Ygor Lazaro <ygor@ygorlazaro.com>",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "buefy": "^0.7.6",
+    "query-string": "^6.5.0",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-router": "^3.0.6",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^3.5.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ygorlazaro/GitTrunfo.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ygorlazaro/GitTrunfo/issues"
+  },
+  "homepage": "https://github.com/ygorlazaro/GitTrunfo#readme",
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
+  }
 }
