@@ -8,7 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "buefy": "0.9.3",
     "query-string": "6.13.6",
